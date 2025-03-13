@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Holi E-Card Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1 class="title">Holi E-Card Generator 🎨</h1>
+
+  <div class="controls">
+    <label for="backgroundSelect">Select Background:</label>
+    <select id="backgroundSelect">
+      <option value="bg1">Bright Colors</option>
+      <option value="bg2">Pastel Colors</option>
+      <option value="bg3">Splash Art</option>
+    </select>
+
+    <label for="uploadPhoto">Or Upload Your Photo:</label>
+    <input type="file" id="uploadPhoto" accept="image/*" />
+  </div>
+
+  <div class="canvas-container">
+    <div id="ecard" class="ecard bg1">
+      <div class="message">
+        <h2 contenteditable="true">Happy Holi!</h2>
+        <p contenteditable="true">From: Your Name</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button id="addSplash">Add Color Splash 🎨</button>
+    <button id="downloadBtn">Download Card ⬇️</button>
+  </div>
+
+  <!-- html2canvas for download functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
