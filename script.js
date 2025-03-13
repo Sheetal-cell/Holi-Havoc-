@@ -9,7 +9,7 @@ let score = 0;
 let missed = 0;
 let gameInterval;
 let itemInterval;
-let playerPos = 0;
+let playerPos = 170; // starting X position
 
 function startGame() {
   score = 0;
@@ -17,7 +17,6 @@ function startGame() {
   scoreBoard.innerText = score;
   missedBoard.innerText = missed;
 
-  // Center player
   playerPos = gameArea.clientWidth / 2 - player.offsetWidth / 2;
   player.style.left = `${playerPos}px`;
 
@@ -44,44 +43,69 @@ function createItem() {
   const emojis = ['💦', '🎨', '🌈', '🫧'];
   item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-  const itemWidth = 30; // rough width in px for positioning
-  const randomLeft = Math.random() * (gameArea.clientWidth - itemWidth);
-
-  item.style.left = `${randomLeft}px`;
+  item.style.left = `${Math.random() * (gameArea.clientWidth - 30)}px`;
   item.style.top = '0px';
   gameArea.appendChild(item);
 }
+function createGulal(x, y) {
+    const gulal = document.createElement('div');
+    gulal.classList.add('gulal-burst');
+  
+    // Random bright Holi color
+    const gulalColors = ['#FF4081', '#FFEB3B', '#7C4DFF', '#4CAF50', '#03A9F4', '#FF5722'];
+    const color = gulalColors[Math.floor(Math.random() * gulalColors.length)];
+    gulal.style.backgroundColor = color;
+  
+    // Position the burst (relative to gameArea)
+    gulal.style.left = `${x}px`;
+    gulal.style.top = `${y}px`;
+  
+    gameArea.appendChild(gulal);
+  
+    // Remove it after animation
+    setTimeout(() => {
+      gulal.remove();
+    }, 800);
+  }
+  
 
-function updateGame() {
-  const items = document.querySelectorAll('.fallingItem');
-  items.forEach(item => {
-    let top = parseInt(item.style.top);
-    top += 4;
-    item.style.top = `${top}px`;
-
-    const itemLeft = parseInt(item.style.left);
-    const playerLeft = playerPos;
-    const playerRight = playerPos + player.offsetWidth;
-
-    if (top > gameArea.clientHeight - player.offsetHeight - 10) {
-      if (itemLeft >= playerLeft && itemLeft <= playerRight) {
-        score++;
-        scoreBoard.innerText = score;
-        item.remove();
-      } else if (top > gameArea.clientHeight - 30) {
-        missed++;
-        missedBoard.innerText = missed;
-        item.remove();
-
-        if (missed >= 3) {
-          endGame();
+  function updateGame() {
+    const items = document.querySelectorAll('.fallingItem');
+    items.forEach(item => {
+      let top = parseInt(item.style.top);
+      top += 4;
+      item.style.top = `${top}px`;
+  
+      const itemLeft = parseInt(item.style.left);
+      const playerLeft = playerPos;
+      const playerRight = playerPos + player.offsetWidth;
+  
+      if (top > gameArea.clientHeight - 60) {
+        if (itemLeft >= playerLeft && itemLeft <= playerRight) {
+          score++;
+          scoreBoard.innerText = score;
+  
+          // Gulal burst here!
+          const playerCenterX = playerLeft + player.offsetWidth / 2;
+          const playerY = gameArea.clientHeight - player.offsetHeight - 20;
+          createGulal(playerCenterX - 20, playerY);
+  
+          item.remove();
+        } else if (top > gameArea.clientHeight - 30) {
+          missed++;
+          missedBoard.innerText = missed;
+          item.remove();
+  
+          if (missed >= 7) {
+            endGame();
+          }
         }
       }
-    }
-  });
-}
+    });
+  }
+  
 
-// Keyboard controls
+// Controls
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') {
     playerPos -= 20;
@@ -91,7 +115,6 @@ document.addEventListener('keydown', (e) => {
   keepPlayerInBounds();
 });
 
-// Touch controls
 let touchStartX = null;
 
 gameArea.addEventListener('touchstart', e => {
@@ -118,7 +141,6 @@ function keepPlayerInBounds() {
 
 startBtn.addEventListener('click', startGame);
 
-// Update player position when window resizes (responsive fix)
 window.addEventListener('resize', () => {
   playerPos = gameArea.clientWidth / 2 - player.offsetWidth / 2;
   player.style.left = `${playerPos}px`;

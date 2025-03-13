@@ -8,15 +8,20 @@
 </head>
 <body>
 
+
   <h1>🎨 Holi Color Catcher 🎉</h1>
+
+  <!-- Score and Missed counters side by side -->
+  <div class="status-bar">
+    <div class="status-item">Score: <span id="score">0</span></div>
+    <div class="status-item">Missed: <span id="missed">0</span>/7</div>
+  </div>
 
   <div id="gameArea">
     <div id="player">🪣</div>
   </div>
 
   <div class="info">
-    <p>Score: <span id="score">0</span></p>
-    <p>Missed: <span id="missed">0</span>/7</p>
     <button id="startBtn">Start Game</button>
   </div>
 
@@ -27,5 +32,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
