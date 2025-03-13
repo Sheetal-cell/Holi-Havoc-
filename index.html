@@ -3,40 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Holi E-Card Generator</title>
+  <title>Holi Color Catcher</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="title">Holi E-Card Generator 🎨</h1>
 
-  <div class="controls">
-    <label for="backgroundSelect">Select Background:</label>
-    <select id="backgroundSelect">
-      <option value="bg1">Bright Colors</option>
-      <option value="bg2">Pastel Colors</option>
-      <option value="bg3">Splash Art</option>
-    </select>
+  <h1>🎨 Holi Color Catcher 🎉</h1>
 
-    <label for="uploadPhoto">Or Upload Your Photo:</label>
-    <input type="file" id="uploadPhoto" accept="image/*" />
+  <div id="gameArea">
+    <div id="player">🪣</div>
   </div>
 
-  <div class="canvas-container">
-    <div id="ecard" class="ecard bg1">
-      <div class="message">
-        <h2 contenteditable="true">Happy Holi!</h2>
-        <p contenteditable="true">From: Your Name</p>
-      </div>
-    </div>
+  <div class="info">
+    <p>Score: <span id="score">0</span></p>
+    <p>Missed: <span id="missed">0</span>/7</p>
+    <button id="startBtn">Start Game</button>
   </div>
 
-  <div class="buttons">
-    <button id="addSplash">Add Color Splash 🎨</button>
-    <button id="downloadBtn">Download Card ⬇️</button>
-  </div>
+  <audio id="bgMusic" loop>
+    <source src="https://www.fesliyanstudios.com/play-mp3/6556" type="audio/mpeg" />
+  </audio>
 
-  <!-- html2canvas for download functionality -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
+

@@ -1,132 +1,124 @@
-body {
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-    background: #fff3e0;
     text-align: center;
-    padding: 20px;
+    background: #fffde7;
+    margin: 0;
+    padding: 0;
   }
   
-  .title {
-    color: #e91e63;
+  h1 {
+    color: #ff4081;
+    margin: 20px 0;
     font-size: 2rem;
-    margin-bottom: 1rem;
   }
   
-  .controls {
-    margin-bottom: 1rem;
-  }
-  
-  .controls label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  .canvas-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .ecard {
+  #gameArea {
     position: relative;
-    width: 320px;
-    height: 480px;
-    border: 5px solid #f50057;
-    border-radius: 12px;
-    background-size: cover;
-    background-position: center;
+    width: 90%;
+    max-width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    border: 3px solid #ff6f00;
+    background: linear-gradient(to bottom, #ffe0b2, #ffffff);
     overflow: hidden;
+    border-radius: 10px;
   }
   
-  .bg1 {
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-  }
-  
-  .bg2 {
-    background: linear-gradient(135deg, #e0f7fa, #80deea);
-  }
-  
-  .bg3 {
-    background: linear-gradient(135deg, #f3e5f5, #ce93d8);
-  }
-  
-  .message {
+  #player {
     position: absolute;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
-    color: #fff;
+    bottom: 10px;
+    width: 15%;
+    max-width: 60px;
+    height: auto;
+    font-size: 2.5rem;
+    text-align: center;
+    transition: left 0.1s ease;
   }
   
-  .message h2,
-  .message p {
-    margin: 10px 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .splash {
+  .fallingItem {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #ff4081 30%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: pop 0.5s ease-out;
+    font-size: 2rem;
   }
   
-  .buttons button {
-    margin: 10px;
-    padding: 10px 15px;
-    font-size: 1rem;
+  .info {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  button {
     background-color: #ff4081;
     color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .buttons button:hover {
+  button:hover {
     background-color: #f50057;
   }
   
-  @keyframes pop {
-    0% {
-      transform: scale(0);
-      opacity: 0.7;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+  /* ✅ Responsive Design */
   
-  /* Animation for falling splashes */
-  @keyframes fall {
-    0% {
-      top: -60px;
-      opacity: 1;
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
     }
-    100% {
-      top: 500px;
-      opacity: 0;
-    }
-  }
   
-  .fallingSplash {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle, #ff4081 30%, transparent 70%);
-    border-radius: 50%;
-    animation: fall linear infinite;
+    #gameArea {
+      height: 500px;
+    }
+  
+    #player {
+      width: 18%;
+      font-size: 2rem;
+    }
+  
+    .fallingItem {
+      font-size: 1.8rem;
+    }
+  
+    .info {
+      font-size: 1rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
   }
   
   @media (max-width: 480px) {
-    .ecard {
-      width: 260px;
-      height: 390px;
+    h1 {
+      font-size: 1.2rem;
+    }
+  
+    #gameArea {
+      height: 400px;
+    }
+  
+    #player {
+      width: 20%;
+      font-size: 1.5rem;
+    }
+  
+    .fallingItem {
+      font-size: 1.5rem;
+    }
+  
+    .info {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 0.8rem;
+      padding: 6px 12px;
     }
   }
   
