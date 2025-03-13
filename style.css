@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff3e0;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    color: #e91e63;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .controls {
+    margin-bottom: 1rem;
+  }
+  
+  .controls label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ecard {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    border: 5px solid #f50057;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  
+  .bg1 {
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  }
+  
+  .bg2 {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+  }
+  
+  .bg3 {
+    background: linear-gradient(135deg, #f3e5f5, #ce93d8);
+  }
+  
+  .message {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    color: #fff;
+  }
+  
+  .message h2,
+  .message p {
+    margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .splash {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ff4081 30%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pop 0.5s ease-out;
+  }
+  
+  .buttons button {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background-color: #f50057;
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Animation for falling splashes */
+  @keyframes fall {
+    0% {
+      top: -60px;
+      opacity: 1;
+    }
+    100% {
+      top: 500px;
+      opacity: 0;
+    }
+  }
+  
+  .fallingSplash {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ff4081 30%, transparent 70%);
+    border-radius: 50%;
+    animation: fall linear infinite;
+  }
+  
+  @media (max-width: 480px) {
+    .ecard {
+      width: 260px;
+      height: 390px;
+    }
+  }
+  
