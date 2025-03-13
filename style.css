@@ -54,11 +54,11 @@
     margin: 0 auto;
     border: 3px solid #ff6f00;
     /* Background Gradient Animation */
-  background: linear-gradient(135deg, #ffe0b2, #ffffff, #f3e5f5, #fce4ec);
-  background-size: 600% 600%;
+    background: linear-gradient(135deg, #ffe0b2, #ffc3c3, #f7c4ff, #ff8ab1);
+    background-size: 600% 600%;
 
   /* Animations */
-  animation: gameAreaColorShift 10s ease-in-out infinite, gameAreaPulse 5s linear infinite, gameAreaTilt 6s ease-in-out infinite;
+    animation: gameAreaColorShift 10s ease-in-out infinite, gameAreaPulse 5s linear infinite, gameAreaTilt 6s ease-in-out infinite;
     overflow: hidden;
     border-radius: 10px;
     z-index: 1;
@@ -67,8 +67,8 @@
 
   /* Body Glow Pulse */
 @keyframes bodyGlowPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(255, 64, 129, 0.5); }
-    50% { box-shadow: 0 0 40px rgba(255, 64, 129, 0.8); }
+    0%, 100% { box-shadow: 0 0 20px #ff8fe1dc; }
+    50% { box-shadow: 0 0 40px rgba(255, 90, 145, 0.8); }
   }
   
   /* Game Area Color Shift */
