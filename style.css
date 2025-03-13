@@ -29,7 +29,7 @@
     font-size: 2rem;
   }
   
-  /* ✅ Status bar styles */
+  /* Status bar styles */
   .status-bar {
     display: flex;
     justify-content: center;
@@ -171,7 +171,7 @@
     background-color: #f50057;
   }
   
-  /* ✅ Responsive Design */
+  /* Responsive Design */
   
   @media (max-width: 768px) {
     h1 {
@@ -303,37 +303,67 @@
   width: 170px;  /* adjust size as needed */
   height: auto;
   z-index: 10;
+
+  transition: all 0.3s ease;
+  animation: logoBounceAndPulse 3s infinite;
+}
+@keyframes logoBounceAndPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) scale(1.05);
+    filter: hue-rotate(45deg);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+    filter: hue-rotate(90deg);
+  }
+  75% {
+    transform: translateY(-5px) scale(1.05);
+    filter: hue-rotate(45deg);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: hue-rotate(0deg);
+  }
 }
 
 
 
 
-/* ✅ Mobile view adjustments */
+/*  Mobile view adjustments */
 @media (max-width: 768px) {
   .header-container {
-    justify-content:flex-start; /* align logo + heading side by side */
+    justify-content: flex-start; /* Aligns items to the left */
     padding: 10px 20px;
-    
+    display: flex; /* Ensures flexbox behavior */
+    flex-direction: row; /* Forces logo + heading in one line */
+    align-items: center; /* Keeps them vertically aligned */
   }
 
   .game-logo {
-    position: relative; /* makes it inline with heading */
-    top: 0;
-    left: 0;
-    width: 50px;
-    margin-right: 10px;
+    position: static; /* Removes absolute positioning */
+    width: 50px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px; /* Adds spacing between logo & heading */
+    display: inline-block; /* Forces inline behavior */
   }
 
   .game-title {
-    text-align: left;
     font-size: 2rem;
+    text-align: left; /* Align text properly */
+    display: inline-block; /* Ensures heading sits next to logo */
+    white-space: nowrap; /* Prevents wrapping */
   }
 }
 
-/* ✅ Extra small screens */
+/* Extra small  */
 @media (max-width: 480px) {
   .game-logo {
     width: 40px;
+    margin-right: 8px;
   }
 
   .game-title {
@@ -360,3 +390,32 @@
 .game-logo:hover {
   transform: scale(1.1);
 }
+.footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #000000;
+  background-color: transparent; /* transparent background */
+  padding: 10px 0;
+  margin-top: 15px; /* space from Start button */
+  position: relative; /* stays below the button */
+  border-top: none;
+}
+
+
+.footer {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.footer:hover {
+  opacity: 1;
+  color: #ff4081;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .footer {
+    font-size: 0.9rem;
+  }
+}
+
