@@ -40,7 +40,7 @@ function createItem() {
   const item = document.createElement('div');
   item.classList.add('fallingItem');
 
-  const emojis = ['💦', '🎨', '🌈', '🫧'];
+  const emojis = ['💦', '🔫', '🎈', '🌈', '🫧'];
   item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
   item.style.left = `${Math.random() * (gameArea.clientWidth - 30)}px`;
